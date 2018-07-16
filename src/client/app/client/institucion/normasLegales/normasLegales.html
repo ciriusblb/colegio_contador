@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col-md-3 small-box-shadow">
+        <rt-widget-header title="NORMAS LEGALES" bg="background-head-orange"></rt-widget-header> 						
+		<div class="form-check m-0 radio-orange-gap p-0" ng-repeat="a in vm.normas">
+		    <input name="102" type="radio" class="with-gap" ng-checked="$index==0" id="{{a.titulo}}" ng-click="vm.select($index)">
+		    <label for="{{a.titulo}}">{{a.titulo}}</label>
+		</div>          
+	</div>
+	<div class="col-md-9 small-box-shadow">
+
+        <rt-widget-header title="{{vm.urlPdf.titulo}}" bg="background-head-orange"></rt-widget-header> 						
+
+			<object data="archivos/norma/{{vm.urlPdf.norma}}" type="application/pdf" width="100%" height="600px"></object>
+
+	</div>
+</div>

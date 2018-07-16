@@ -1,0 +1,59 @@
+<div style="height: 100%" ui-view></div>
+
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(main);
+    var contador = 1;
+
+    function main () {
+        $('.bt-menu').click(function(){
+            if (contador == 1) {
+                $('nav').animate({
+                    left: '0'
+                });
+                contador = 0;
+            } else {
+                contador = 1;
+                $('nav').animate({
+                    left: '-72.1%'
+                });
+            }
+        });
+        $('.submenu').click(function(){
+            $(this).children('.children').slideToggle();
+        });
+        $('ul').click(function(p){
+            p.stopPropagation();
+        });
+
+        $('.subsubmenu').click(function(){
+            $(this).children('.subChildren').slideToggle();
+        });
+        $('ul').click(function(p){
+            p.stopPropagation();
+        });
+    }
+</script>
+
+<style type="text/css">
+    .none{
+        display: none;
+    }
+    .block{
+        display: block;
+    }
+    .menu-fixed {
+        position:fixed;
+        z-index:2000;
+        background: #fff;
+        top:0;
+        width: 100%;
+        box-shadow:0px 4px 3px rgba(0,0,0,.5);
+    }
+</style>
+
+

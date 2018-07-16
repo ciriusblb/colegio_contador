@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html ng-app="app.main">
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Colegio Médico</title>
+  <link rel="stylesheet" href="content/css/toastr.min.css">  
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+  <link rel="stylesheet" href="content/css/client/bootstrap.min.css">
+  <link rel="stylesheet" href="content/css/client/mdb.min.css">
+  <link rel="stylesheet" href="content/css/client/popper.min.css">
+  <link rel="stylesheet" href="content/css/client/mdbpro.min.css">
+
+  <link rel="stylesheet" href="content/css/client/estilos.css">  
+
+
+<!-- <link rel="stylesheet" type="text/css" href="content/css/admin/estilosAdmin.css"> -->
+
+</head>				
+<body >
+
+	<div style="height: 100%" ng-include=" 'app/layout/shell.html' " ></div>
+
+
+
+ 	<script src="scripts/jquery-3.2.1.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/mdb.min.js"></script>
+  <script src="scripts/popper.min.js"></script>
+ 	<script src="scripts/angular.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
+  <script src="scripts/angular-jwt.js" ></script>
+
+ 	<script src="scripts/angular-ui-router.min.js"></script>
+ 	<script src="scripts/angular-resource.min.js"></script>
+  <script src="scripts/slick.min.js"></script>
+  <script src="scripts/angular-slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.6.9/angular-locale_es-es.js"></script>
+  <script src="scripts/fontawesome-all.min.js"></script>
+ 	<script src="scripts/toastr.min.js"></script>
+  <script src="scripts/angular-sanitize.js"></script>
+  <!-- <script src="scripts/ui-bootstrap-tpls-0.14.3.min.js"></script> -->
+  <script src="scripts/ui-bootstrap-tpls-3.0.4.min.js"></script>
+  <script src="scripts/mask.js"></script>
+
+
+
+ 	<script src="app/app.module.js"></script>
+
+
+  <script src="app/blocks/logger/logger.module.js"></script>
+  <script src="app/blocks/logger/logger.js"></script>
+  <script src="app/blocks/exception/exception.module.js"></script>
+  <script src="app/blocks/exception/exception-handler.provider.js"></script>
+  <script src="app/blocks/exception/exception.js"></script>
+ 	<script src="app/blocks/router/router.module.js"></script>
+ 	<script src="app/blocks/router/routehelper.js"></script>
+
+
+
+
+ 	<script src="app/core/core.module.js"></script>
+  <script src="app/core/constants.js"></script>
+ 	<script src="app/core/config.js"></script>
+
+  <script src="app/data/dataservice.module.js"></script>
+  <!-- <script src="app/data/operaciones.js"></script> -->
+  <script src="app/data/services.js"></script>
+  
+
+  <script src="app/widgets/widgets.module.js"></script>
+  <script src="app/widgets/file.js"></script>
+  <script src="app/widgets/rtConfigText/rtAutoResize.js"></script>
+  <script src="app/widgets/rtConfigText/rtCapitalizeLetter.js"></script>
+  <script src="app/widgets/rtPagination/rtPaginationDirective.js"></script>
+  <script src="app/widgets/rtWidgetHeader/rtWidgetHeader.js"></script>
+  <script src="app/widgets/rtImageFile/rtImageFile.js"></script>
+  <script src="app/widgets/rtFormButton/rtFormButton.js"></script>
+
+  <script src="app/client/client.module.js"></script>
+  <script src="app/client/dataservice.js"></script>
+  <script src="app/client/config.route.js"></script>
+  <script src="app/client/client.js"></script>
+
+
+  <script src="app/client/home/home.module.js"></script>
+  <script src="app/client/home/dataservice.js"></script>
+  <script src="app/client/home/config.route.js"></script>
+  <script src="app/client/home/home.js"></script>
+
+  <script src="app/client/institucion/institucion.module.js"></script>
+  <script src="app/client/institucion/config.route.js"></script>
+
+  <script src="app/client/institucion/normasLegales/normasLegales.module.js"></script>
+  <script src="app/client/institucion/normasLegales/dataservice.js"></script>
+  <script src="app/client/institucion/normasLegales/config.route.js"></script>
+  <script src="app/client/institucion/normasLegales/normasLegales.js"></script>
+
+  <script src="app/client/institucion/himnoMDD/himnoMDD.module.js"></script>
+  <script src="app/client/institucion/himnoMDD/config.route.js"></script>
+  <script src="app/client/institucion/himnoMDD/himnoMDD.js"></script>
+
+  <script src="app/client/institucion/himnoCP/himnoCP.module.js"></script>
+  <script src="app/client/institucion/himnoCP/config.route.js"></script>
+  <script src="app/client/institucion/himnoCP/himnoCP.js"></script>
+
+  <script src="app/client/institucion/nosotros/nosotros.module.js"></script>
+  <script src="app/client/institucion/nosotros/dataservice.js"></script>
+  <script src="app/client/institucion/nosotros/config.route.js"></script>
+  <script src="app/client/institucion/nosotros/nosotros.js"></script>
+
+  <script src="app/client/institucion/estatutoCPP/estatutoCPP.module.js"></script>
+  <script src="app/client/institucion/estatutoCPP/config.route.js"></script>
+  <script src="app/client/institucion/estatutoCPP/estatutoCPP.js"></script>
+
+  <script src="app/client/institucion/galeria/galeria.module.js"></script>
+  <script src="app/client/institucion/galeria/dataservice.js"></script>
+  <script src="app/client/institucion/galeria/config.route.js"></script>
+  <script src="app/client/institucion/galeria/galeria.js"></script>
+
+
+
+  <script src="app/client/organizacion/organizacion.module.js"></script>
+  <script src="app/client/organizacion/config.route.js"></script>
+
+  <script src="app/client/organizacion/estructuraOrganizacional/estructuraOrganizacional.module.js"></script>
+  <script src="app/client/organizacion/estructuraOrganizacional/config.route.js"></script>
+  <script src="app/client/organizacion/estructuraOrganizacional/estructuraOrganizacional.js"></script>
+
+  <script src="app/client/organizacion/consejoDirectivo/consejoDirectivo.module.js"></script>
+  <script src="app/client/organizacion/consejoDirectivo/config.route.js"></script>
+  <script src="app/client/organizacion/consejoDirectivo/consejoDirectivo.js"></script>
+
+  <script src="app/client/organizacion/juntaDecanos/juntaDecanos.module.js"></script>
+  <script src="app/client/organizacion/juntaDecanos/config.route.js"></script>
+  <script src="app/client/organizacion/juntaDecanos/juntaDecanos.js"></script>
+
+  <script src="app/client/organizacion/pastDecanos/pastDecanos.module.js"></script>
+  <script src="app/client/organizacion/pastDecanos/dataservice.js"></script>
+  <script src="app/client/organizacion/pastDecanos/config.route.js"></script>
+  <script src="app/client/organizacion/pastDecanos/pastDecanos.js"></script>
+
+  <script src="app/client/organizacion/elecciones/elecciones.module.js"></script>
+  <script src="app/client/organizacion/elecciones/config.route.js"></script>
+  <script src="app/client/organizacion/elecciones/elecciones.js"></script>
+
+
+
+  <script src="app/client/colegiados/colegiados.module.js"></script>
+  <script src="app/client/colegiados/config.route.js"></script>
+
+  <script src="app/client/colegiados/mienbrosColegiados/mienbrosColegiados.module.js"></script>
+  <script src="app/client/colegiados/mienbrosColegiados/dataservice.js"></script>
+  <script src="app/client/colegiados/mienbrosColegiados/config.route.js"></script>
+  <script src="app/client/colegiados/mienbrosColegiados/mienbrosColegiados.js"></script>
+
+  <script src="app/client/colegiados/mienbrosCertificados/mienbrosCertificados.module.js"></script>
+  <script src="app/client/colegiados/mienbrosCertificados/dataservice.js"></script>
+  <script src="app/client/colegiados/mienbrosCertificados/config.route.js"></script>
+  <script src="app/client/colegiados/mienbrosCertificados/mienbrosCertificados.js"></script>
+
+  <script src="app/client/servicios/servicios.module.js"></script>
+  <script src="app/client/servicios/config.route.js"></script>
+
+  <script src="app/client/servicios/colegiatura/colegiatura.module.js"></script>
+  <script src="app/client/servicios/colegiatura/config.route.js"></script>
+  <script src="app/client/servicios/colegiatura/colegiatura.js"></script>
+
+  
+  <script src="app/client/servicios/certificacion/certificacion.module.js"></script>
+  <script src="app/client/servicios/certificacion/config.route.js"></script>
+  <script src="app/client/servicios/certificacion/certificacion.js"></script>
+  
+  <script src="app/client/servicios/recertificacion/recertificacion.module.js"></script>
+  <script src="app/client/servicios/recertificacion/config.route.js"></script>
+  <script src="app/client/servicios/recertificacion/recertificacion.js"></script>
+
+
+  <script src="app/client/eventos/eventos.module.js"></script>
+  <script src="app/client/eventos/config.route.js"></script>
+
+  <script src="app/client/eventos/cumpleaños/cumpleaños.module.js"></script>
+  <script src="app/client/eventos/cumpleaños/dataservice.js"></script>
+  <script src="app/client/eventos/cumpleaños/config.route.js"></script>
+  <script src="app/client/eventos/cumpleaños/cumpleaños.js"></script>
+
+  <script src="app/client/eventos/seminarios/seminarios.module.js"></script>
+  <script src="app/client/eventos/seminarios/config.route.js"></script>
+  <script src="app/client/eventos/seminarios/seminarios.js"></script>
+
+  <script src="app/client/eventos/eventos/eventos.module.js"></script>
+  <script src="app/client/eventos/eventos/dataservice.js"></script>
+  <script src="app/client/eventos/eventos/config.route.js"></script>
+  <script src="app/client/eventos/eventos/eventos.js"></script>
+
+  <script src="app/client/eventos/evento/evento.module.js"></script>
+  <script src="app/client/eventos/evento/dataservice.js"></script>
+  <script src="app/client/eventos/evento/config.route.js"></script>
+  <script src="app/client/eventos/evento/evento.js"></script>
+
+
+  <script src="app/client/contactos/contactos.module.js"></script>
+  <script src="app/client/contactos/config.route.js"></script>
+  <script src="app/client/contactos/contactos.js"></script>
+
+
+
+  <script src="app/login/login.module.js"></script>
+  <script src="app/login/dataservice.js"></script>
+  <script src="app/login/config.route.js"></script>
+  <script src="app/login/login.js"></script>
+
+  <script src="app/login/usuario/usuario.module.js"></script>
+  <script src="app/login/usuario/config.route.js"></script>
+  <script src="app/login/usuario/usuario.js"></script>
+  <script src="app/login/password/password.module.js"></script>
+  <script src="app/login/password/config.route.js"></script>
+  <script src="app/login/password/password.js"></script>
+
+
+  <script src="app/admin/admin.module.js"></script>
+  <script src="app/admin/config.route.js"></script>
+  <script src="app/admin/admin.js"></script>
+
+  <script src="app/admin/home/home.module.js"></script>
+  <script src="app/admin/home/config.route.js"></script>
+
+  <script src="app/admin/home/slider/slider.module.js"></script>
+  <script src="app/admin/home/slider/dataservice.js"></script>
+  <script src="app/admin/home/slider/config.route.js"></script>
+  <script src="app/admin/home/slider/slider.js"></script>
+  
+  <script src="app/admin/home/noticias/noticias.module.js"></script>
+  <script src="app/admin/home/noticias/dataservice.js"></script>
+  <script src="app/admin/home/noticias/config.route.js"></script>
+  <script src="app/admin/home/noticias/noticias.js"></script>
+
+  <script src="app/admin/home/noticias/noticia/config.route.js"></script>
+  <script src="app/admin/home/noticias/noticia/noticia.js"></script>
+
+  <script src="app/admin/home/informes/informes.module.js"></script>
+  <script src="app/admin/home/informes/dataservice.js"></script>
+  <script src="app/admin/home/informes/config.route.js"></script>
+  <script src="app/admin/home/informes/informes.js"></script>
+  
+  <script src="app/admin/home/enlaces/enlaces.module.js"></script>
+  <script src="app/admin/home/enlaces/dataservice.js"></script>
+  <script src="app/admin/home/enlaces/config.route.js"></script>
+  <script src="app/admin/home/enlaces/enlaces.js"></script>
+
+  <script src="app/admin/home/enlaces/enlace/config.route.js"></script>
+  <script src="app/admin/home/enlaces/enlace/enlace.js"></script>
+
+  <script src="app/admin/institucion/institucion.module.js"></script>
+  <script src="app/admin/institucion/config.route.js"></script>
+
+  <script src="app/admin/institucion/normasLegales/normasLegales.module.js"></script>
+  <script src="app/admin/institucion/normasLegales/dataservice.js"></script>
+  <script src="app/admin/institucion/normasLegales/config.route.js"></script>
+  <script src="app/admin/institucion/normasLegales/normasLegales.js"></script>
+
+  <script src="app/admin/institucion/nosotros/nosotros.module.js"></script>
+  <script src="app/admin/institucion/nosotros/dataservice.js"></script>
+  <script src="app/admin/institucion/nosotros/config.route.js"></script>
+  <script src="app/admin/institucion/nosotros/nosotros.js"></script>
+
+  <script src="app/admin/institucion/galeria/galeria.module.js"></script>
+  <script src="app/admin/institucion/galeria/dataservice.js"></script>
+  <script src="app/admin/institucion/galeria/config.route.js"></script>
+  <script src="app/admin/institucion/galeria/galeria.js"></script>
+
+  <script src="app/admin/institucion/galeria/categoria/categoria.module.js"></script>
+  <script src="app/admin/institucion/galeria/categoria/config.route.js"></script>
+  <script src="app/admin/institucion/galeria/categoria/categoria.js"></script>
+
+
+  <script src="app/admin/organizacion/organizacion.module.js"></script>
+  <script src="app/admin/organizacion/config.route.js"></script>
+
+  <script src="app/admin/organizacion/pastDecanos/pastDecanos.module.js"></script>
+  <script src="app/admin/organizacion/pastDecanos/dataservice.js"></script>
+  <script src="app/admin/organizacion/pastDecanos/config.route.js"></script>
+  <script src="app/admin/organizacion/pastDecanos/pastDecanos.js"></script>
+
+
+  <script src="app/admin/miembros/miembros.module.js"></script>
+  <script src="app/admin/miembros/dataservice.js"></script>
+  <script src="app/admin/miembros/config.route.js"></script>
+  <script src="app/admin/miembros/miembros.js"></script>
+
+  <script src="app/admin/miembros/miembro/miembro.module.js"></script>
+  <script src="app/admin/miembros/miembro/config.route.js"></script>
+  <script src="app/admin/miembros/miembro/miembro.js"></script>
+
+  <script src="app/admin/servicios/servicios.module.js"></script>
+  <script src="app/admin/servicios/config.route.js"></script>
+
+  <script src="app/admin/eventos/eventos.module.js"></script>
+  <script src="app/admin/eventos/dataservice.js"></script>
+  <script src="app/admin/eventos/config.route.js"></script>
+  <script src="app/admin/eventos/eventos.js"></script>
+
+  <script src="app/admin/eventos/evento/evento.module.js"></script>
+  <script src="app/admin/eventos/evento/config.route.js"></script>
+  <script src="app/admin/eventos/evento/evento.js"></script>
+
+</body>
+</html>

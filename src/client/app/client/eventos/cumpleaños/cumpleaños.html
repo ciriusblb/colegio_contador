@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-3  small-box-shadow">
+        <rt-widget-header title="Meses" bg="background-head-orange"></rt-widget-header> 						
+       		<div class="form-check m-0 radio-orange-gap p-0" ng-repeat="a in vm.meses">
+		    <input name="102" type="radio" class="with-gap" id="{{a.mes}}" ng-checked="a.mes.toLowerCase()==vm.mes" value="{{a.mes}}" ng-model="vm.mes">
+		    <label for="{{a.mes}}">{{a.mes}}</label>
+		</div>
+    </div>
+    <div class="col-md-9 small-box-shadow">
+
+        <rt-widget-header title="Miembros del colegio de contadores públicos que cumplen años este mes<" bg="background-head-orange"></rt-widget-header> 						
+
+        <div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered table-sm ">
+					<thead class="warning-color">
+							<th>N°</th>
+							<th>MAT. Nº</th>
+							<th>APELLIDOS Y NOMBRES</th>
+							<th>FECHA DE NACIMIENTO</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="a in vm.miembros | filter:vm.mes" ng-class="{'active': vm.happyDay == a.fecha_Nac}">
+							<td>{{a.id}}</td>
+							<td>{{a.matricula}}</td>
+							<td>{{a.ap_Paterno}} {{a.ap_Materno}}, {{a.nombre}}</td>
+							<td>{{a.fecha_Nac}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+    </div>
+</div>
+
+<style type="text/css">
+	.active{
+		border-left: 5px solid #00695c;
+		color: white;
+		background: #2BBBAD;
+	}
+</style>

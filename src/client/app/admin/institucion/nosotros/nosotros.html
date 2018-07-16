@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-6" style="background: #e2e2e2;">
+    <rt-widget-header title="Nosotros" bg="background-head-blueblack"></rt-widget-header>
+    <div class="col-md-12" >
+      <form id="site-search"  class="ng-pristine ng-valid example col-md-12">
+          <button type="submit"><i class="fa fa-search"></i></button>
+          <input type="text" ng-model="vm.text" placeholder="Type here for search..." name="search">
+      </form>
+    </div>
+    <div class="col-md-12 tableBody" style="height: 460px; overflow: auto;">
+        <div class="left" ng-repeat="a in vm.nosotros | filter: vm.text" ng-class="{'tr-selected':vm.updates.idSelected==a.id}">
+          <h1 class="orange-text mb-1" ng-click="vm.seleccionar(a.id)">{{a.titulo}}</h1>
+          <ul>
+            <li ng-repeat="b in a.texto">
+              {{b.text}}
+            </li>
+          </ul>
+        </div>
+    </div>      
+  </div>
+  <div class="col-md-6 small-box-shadow" >
+    <rt-widget-header title="Descripcion" bg="background-head-blueblack"></rt-widget-header>
+    <div class="col-md-12" style="margin-top: 4px">
+      <rt-form-button 
+        buttons="vm.buttons"
+        updates="vm.updates"
+        new-button="vm.nuevo()" 
+        edit-button="vm.editar()" 
+        delete-button="vm.eliminar()">
+      </rt-form-button>
+    </div> 
+    <div class="col-md-12 configBody" style="height: 415px; overflow: auto;">
+      <form class="formulario" name="formulario">
+        <fieldset ng-disabled="vm.updates.disabled">
+          <label class="w3-text-blue" for="titulo"><b>Título</b></label>
+          <input type="text" class="w3-input w3-border" name="titulo" id="titulo" capitalize-letter ng-model="vm.nosotro.titulo" placeholder="Título" required>
+          <label class="w3-text-blue" for="descripcion"><b>Descripción</b></label>
+          <textarea name="descripcion" auto-resize capitalize-letter style="resize: none;" class="w3-input w3-border" placeholder="Descripción" ng-model="vm.nosotro.descripcion" id="descripcion" rows="12" required></textarea>
+        </fieldset>
+      </form>
+    </div>         
+    <br>
+    <div class="panel-body">
+      <center>
+          <button type="submit" ng-click="vm.guardar(formulario.$valid)" class="blue-bottom button-4"><i class="fa fa-check" aria-hidden="true"></i><span >Guardar</span></button> 
+          <a ng-click="vm.cancelar()" class="blue-bottom button-4 text-white"><i class="fa fa-times" aria-hidden="true"></i>Cancelar</a>
+      </center>  
+    </div>  
+  </div>
+</div>
+
+
+
+<style type="text/css">
+
+  .left h1 {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px dotted #CCC;
+    padding: 5px 0px 5px 0px;
+    color: #ff9800;
+    cursor: pointer;
+  }
+  .left ul{
+   margin-bottom: 15px;
+  }
+  .left ul li{
+    list-style: none;
+  }
+</style>

@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-6" style="background: #e2e2e2;">
+    <rt-widget-header title="Categorías en la Galeria" bg="background-head-blueblack"></rt-widget-header>
+    <div class="configBody" style="height: 520px; overflow: auto;">
+      <div class="col-md-12" >
+          <form id="site-search"  class="ng-pristine ng-valid example col-md-12">
+              <button type="submit"><i class="fas fa-search"></i></button>
+              <input type="text" ng-model="vm.texto" placeholder="Type here for search..." name="search">
+          </form>
+      </div>
+      <table class="table table-bordered table-sm">
+          <thead>
+              <th ng-if="vm.updates.message">
+                <div class="ui-checkbox ui-checkbox-cole-active" >
+                  <label>
+                    <input type="checkbox" ng-click="vm.cambiarTodos(!vm.all)" ng-checked="vm.all" ><span></span>
+                  </label>
+                </div>
+              </th>
+              <th>Nro.</th>
+              <th>Categoría</th>
+              <th>Imágenes</th>           
+          </thead>
+          <tbody>
+              <tr ng-repeat="a in vm.items | filter:vm.texto" ng-class="{'tr-selected':vm.updates.idSelected==a.id}" ng-click="vm.select(a.id)">
+                  <td>{{$index+1}}</td>
+                  <td>{{a.categoria}}</td>
+                  <td><i class="fas fa-images"></i></td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6 small-box-shadow">
+    <div ui-view>
+    </div>
+  </div>
+</div>
+
+
+<style type="text/css">
+
+  .left h1 {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px dotted #CCC;
+    padding: 5px 0px 5px 0px;
+    color: #ff9800;
+  }
+  .left ul{
+   margin-bottom: 15px;
+  }
+  .left ul li{
+    list-style: none;
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-6" style="background: #e2e2e2;" >
+  <rt-widget-header title="Normas Legales" bg="background-head-blueblack"></rt-widget-header> 
+  <div  class="configBody" style="height: 520px; overflow: auto;">
+      <div class="col-md-12" >
+        <form id="site-search"  class="ng-pristine ng-valid example col-md-12">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <input type="text" ng-model="vm.texto" placeholder="Type here for search..." name="search">
+        </form>
+      </div>
+      <div class="col-md-12 tableBody" >
+        <table class="table table-bordered">
+              <thead>
+                  <th>Nro.</th>
+                  <th>Título</th>
+                  <th>Archivo</th>
+                  <th>Fecha</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="a in vm.normas | filter:vm.texto" ng-class="{'tr-selected':vm.updates.idSelected==a.id}" class="hover" ng-click="vm.seleccionar(a.id)">
+                    <td>{{$index+1}}</td>
+                    <td>{{a.titulo}}</td>
+                    <td>{{a.norma}}</td>
+                    <td>{{a.fecha | date:'dd/MM/yyyy'}}</td>
+                </tr>
+              </tbody>
+        </table>
+      </div>    
+  </div>
+
+</div>
+<div class="col-md-6 small-box-shadow" >
+    <rt-widget-header title="Descripcion" bg="background-head-blueblack"></rt-widget-header>
+        <div class="col-md-12">
+          <rt-form-button 
+            buttons="vm.buttons"
+            updates="vm.updates"
+            new-button="vm.nuevo()" 
+            edit-button="vm.editar()" 
+            delete-button="vm.eliminar()">
+          </rt-form-button>
+        </div> 
+        <div class="configBody col-md-12" style="height: 400px; overflow: auto">
+          <form name="formulario">
+            <fieldset ng-disabled="vm.updates.disabled">
+              <label class="w3-text-blue" for="titulo"><b>Título</b></label>
+              <input type="text" class="w3-input w3-border" name="titulo" id="titulo" ng-model="vm.norma.titulo"  placeholder="Título" required>
+            </fieldset>
+            <fieldset ng-disabled="vm.updates.disabled">
+              <label class="w3-text-blue" ><b>Archivos</b></label>
+              <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <label class="w3-text-blue-x1 no-margin">1. Nombre del archivo</label>
+                      <div>{{vm.norma.nombre_archivo}}</div>                          
+                    </div>
+                    <div class="col-md-3">
+                        <rt-image-file type="'archivo'" eliminar="vm.eliminarimagenes" property="'norma0'" names="'nombre_archivo'" files="vm.norma.norma" dato="vm.norma" erase-image="false" blob="vm.norma.normaBlob" ></rt-image-file>
+                    </div>
+                  </div>                        
+              </div>
+            </fieldset>
+          </form>
+        </div>     
+      <div class="panel-body">
+        <center>
+            <button type="submit" ng-click="vm.guardar(formulario.$valid)" class="blue-bottom button-4"><i class="fa fa-check" aria-hidden="true"></i><span >Guardar</span></button> 
+            <a ng-click="vm.cancelar()" class="blue-bottom button-4 text-white"><i class="fa fa-times" aria-hidden="true"></i>Cancelar</a>
+        </center>  
+      </div>  
+</div>
+</div>

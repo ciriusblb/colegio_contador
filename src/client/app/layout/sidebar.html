@@ -1,0 +1,43 @@
+
+  <nav class="top-bottom-menu m-0">
+      <ul class="menu">     
+          <li class="submenu" ng-repeat="r in vm.navRoutes">
+            <a style="color: #fff;" ng-if="!r.children" ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
+            <a style="color: #fff;" ng-if="r.children" ng-bind-html="r.settings.content"></a>
+            <ul ng.-if="r.children" class="children">
+                <li ng-repeat="s in r.children" ng-if="!s.go"  class="subsubmenu"><a  ui-sref="{{s.name}}" ng-bind-html="s.settings.content"></a>
+                  <!-- <ul class="subChildren">
+                    <li><a href="">hola</a></li>
+                    <li><a href="">hola</a></li>
+                    <li><a href="">hola</a></li>
+                    <li><a href="">hola</a></li>
+                  </ul> -->
+                </li>
+                <li ng-repeat="s in r.children" ng-if="s.go" class="subsubmenu"><a  ui-sref="{{s.name}}.{{s.go}}" ng-bind-html="s.settings.content"></a></li>
+            </ul>
+          </li>
+      </ul>
+      <div class="social p-0 m-0">
+          <div class="menu-bar"> <a href="" class="d-flex mx-auto bt-menu h3"><i class="fas fa-align-justify"></i></a></div>
+      </div>
+  </nav>
+
+
+
+<!--   <nav class="top-bottom-menu m-0">
+      <ul class="menu">     
+          <li class="submenu" ng-repeat="r in vm.navRoutes">
+            <a style="color: #fff;" ng-if="!r.children" ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
+            <a style="color: #fff;" ng-if="r.children" ng-bind-html="r.settings.content"></a>
+            <ul ng.-if="r.children" class="children">
+                <li ng-repeat="s in r.children" ng-if="!s.go"  class="subsubmenu"><a  ui-sref="{{s.name}}" ng-bind-html="s.settings.content"></a>
+                </li>
+                <li ng-repeat="s in r.children" ng-if="s.go" ng-class="vm.isCurrent(s)" class="subsubmenu"><a  ui-sref="{{s.name}}.{{s.go}}" ng-bind-html="s.settings.content"></a></li>
+            </ul>
+          </li>
+      </ul>
+      <div class="social p-0 m-0">
+          <div class="menu-bar"> <a href="" class="d-flex mx-auto bt-menu h3"><i class="fas fa-align-justify"></i></a></div>
+      </div>
+  </nav>
+ -->

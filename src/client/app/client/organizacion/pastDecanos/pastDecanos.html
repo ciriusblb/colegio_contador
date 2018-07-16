@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12 small-box-shadow" >
+        <rt-widget-header title="PAST DECANOS DEL COLEGIO DE CONTADORES PÚBLICOS DE MADRE DE DIOS" bg="background-head-orange"></rt-widget-header>            
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 mb-4" ng-repeat="a in vm.decanos">
+                    <div class="card testimonial-card">
+                        <div class="card-up teal lighten-2">
+                        </div>
+                        <div class="avatar mx-auto white" ><img src="imagenes/decano/{{a.decano}}" alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                        </div>
+
+                        <div class="card-body">
+                            <h6 class="card-title mt-1">{{a.decano}}</h6>
+                            <hr>
+                            <p><i class="fa fa-quote-left"></i> PERIOSO {{a.mandato}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>       
+    </div>  
+</div>
+
+
+                
+

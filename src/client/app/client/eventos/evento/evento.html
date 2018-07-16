@@ -1,0 +1,72 @@
+<div class="row">
+	<div class="col-md-4 small-box-shadow">
+		<rt-widget-header title="Información General" bg="background-head-orange"></rt-widget-header>   
+		<ol class="lista-ol">
+	        <li><strong>Ponentes</strong> 
+	        	<div class="row">
+		        	<div class="col-md-12">
+		        		<table class="table table-sm borderless h6">
+		        			<tbody>
+		        				<tr ng-repeat="a in vm.evento.ponentes">
+		        					<td class="w-50">
+		        						<img src="imagenes/ponente/{{a.ponente}}" class="img-fluid z-depth-1" alt="Responsive image">
+		        					</td>
+		        					<td>
+		        						<span class="font-weight-bold">{{a.nombre}}</span><br>
+			    						<span class="font-italic">{{a.especialidad}}</span>
+		        					</td>
+		        				</tr>
+		        			</tbody>
+		        		</table>
+		        	</div>
+		        </div>
+	        </li>
+	        <li><strong>Información</strong> 
+				<div class="row">
+		        	<div class="col-md-12">
+		        		<table class="table table-sm borderless h6">
+						  <tbody>
+						    <tr>
+						      <th scope="row">LUGAR: </th>
+						      <td>{{vm.evento.lugar}}</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">FECHA: </th>
+						      <td>{{vm.evento.fecha | date:'EEEE d DE MMMM, yyyy'}}</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">HORA: </th>
+						      <td>{{vm.evento.hora}}</td>
+						    </tr>
+						  </tbody>
+						</table>
+		        	</div>
+		        </div>	        	
+	        </li>
+	        <li><strong>Inscripciones</strong>
+	        	<div class="row">
+		        	<div class="col-md-12">
+		        		Visualiza el lado derecho
+		        	</div>
+		        </div>
+	        </li>
+	        <li><strong>Cuenta Corriente</strong> 
+	        	<div class="row">
+		        	<div class="col-md-12">
+		        		<img src="imagenes/cuenta/{{vm.evento.cuenta}}" class="img-fluid z-depth-1 h-100" alt="Responsive image">
+		        	</div>
+		        </div>
+	        </li>
+	    </ol>         
+	</div>
+	<div class="col-md-8 small-box-shadow"> 
+		<rt-widget-header title="{{vm.evento.titulo}}" bg="background-head-orange"></rt-widget-header>   
+		<img src="imagenes/evento/{{vm.evento.evento}}" class="img-fluid z-depth-1" alt="1">        
+	</div>
+</div>
+
+<style type="text/css">
+	.borderless td, .borderless th {
+	    border: none;
+	}
+</style>

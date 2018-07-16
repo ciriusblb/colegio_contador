@@ -1,0 +1,13 @@
+<form>
+    <p class="h4 text-center py-4">Usuario</p>
+
+    <div class="md-form" >
+        <i class="fa fa-user prefix grey-text"></i>
+        <input type="text" id="usuario" ng-model="vm.user.username" class="form-control" uib-popover-html="htmlPopover" popover-trigger="'none'" popover-is-open="vm.popover" ng-keyup="vm.popover=false">
+        <label for="usuario" class="font-weight-light" ng-class="{'active':vm.user.username!=''}">your user</label>
+    </div>
+    <div class="text-center py-4 mt-3">
+        <button  class="btn btn-warning" ng-click="vm.sendUsername()" type="button">Siguiente</button>
+        <!-- <button  class="btn btn-warning" ui-sref="Login.password" type="button">Siguiente</button> -->
+    </div>
+</form>

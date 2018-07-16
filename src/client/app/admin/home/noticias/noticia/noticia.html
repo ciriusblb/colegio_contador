@@ -1,0 +1,36 @@
+<rt-widget-header title="Descripcion" bg="background-head-blueblack"></rt-widget-header>
+<div class="row">
+    <div class="col-md-12" style="margin-top: 4px;">
+    <rt-form-button 
+      buttons="vm.buttons"
+      updates="vm.updates"
+      new-button="vm.nuevo()" 
+      edit-button="vm.editar()" 
+      delete-button="vm.eliminar()">
+    </rt-form-button>
+  </div> 
+  <div class="col-md-4">
+    <fieldset ng-disabled="vm.updates.disabled">
+      <rt-image-file type="'imagen'" property="'noticia0'" eliminar="vm.eliminarimagenes"  files="vm.noticia.noticia" dato="vm.noticia" height-upload="'150px'" width-upload="'150px'" height-uploaded="'100%'" width-uploaded="'100%'" blob="vm.noticia.noticiaBlob" erase-file="false"></rt-image-file>
+    </fieldset>
+  </div>
+  <div class="col-md-8 configBody" style="height: 400px; overflow: auto;">
+    <form class="formulario" name="formulario">
+      <fieldset ng-disabled="vm.updates.disabled">
+        <label class="w3-text-blue" for="titulo"><b>Título</b></label>
+        <input type="text" class="w3-input w3-border" name="titulo" id="titulo" capitalize-letter ng-model="vm.noticia.titulo" placeholder="noticia" required>
+        <label class="w3-text-blue-x1" for="descripcion"><b>Descripción</b></label>
+        <textarea name="descripcion" auto-resize capitalize-letter style="resize: none;" class="w3-input w3-border" placeholder="Descripción" ng-model="vm.noticia.descripcion" rows="8" required></textarea>
+        <label class="w3-text-blue" for="fuente"><b>Fuente</b></label>
+        <input type="text" class="w3-input w3-border" name="fuente" id="fuente" ng-model="vm.noticia.fuente" placeholder="Fuente" required>
+      </fieldset>
+    </form>
+  </div> 
+</div>        
+
+  <div class="panel-body">
+    <center>
+        <button type="submit" ng-click="vm.guardar(formulario.$valid)" class="blue-bottom button-4"><i class="fa fa-check" aria-hidden="true"></i><span >Guardar</span></button> 
+        <a ng-click="vm.cancelar()" class="blue-bottom button-4 text-white"><i class="fa fa-times" aria-hidden="true"></i>Cancelar</a>
+    </center>  
+  </div>  

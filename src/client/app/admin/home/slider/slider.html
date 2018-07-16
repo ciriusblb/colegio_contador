@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-md-6" style="background: #e2e2e2;">
+    <rt-widget-header title="Slider" bg="background-head-blueblack"></rt-widget-header> 
+    <div class="col-md-12" >
+      <form id="site-search"  class="ng-pristine ng-valid example col-md-12">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        <input type="text" ng-model="vm.texto" placeholder="Type here for search..." name="search">
+      </form>
+    </div>
+      <div class="col-md-12 tableBody"  style="height: 445px; overflow: auto;">
+        <!-- <table class="table table-bordered table-sm">
+          <thead>
+              <th>Nro.</th>
+              <th>Título</th>
+              <th>slide</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="a in vm.slider | filter:vm.texto" class="hover" ng-click="vm.select(a.id)" ng-class="{'tr-selected':vm.updates.idSelected==a.id}">
+                <td>{{$index+1}}</td>
+                <td>{{a.titulo}}</td>
+                <td> <i class="fas fa-images"></i> {{a.slide}} </td>
+            </tr>
+          </tbody>
+        </table> -->
+        <div class="row">
+          <div class="column" ng-repeat="a in vm.slider | filter:vm.texto" ng-click="vm.select(a.id)">
+            <img ng-if="a.slideBlob" src="{{a.slideBlob}}" style="width:100%" class="hover-shadow cursor">
+            <img ng-if="!a.slideBlob" src="imagenes/slide/{{a.slide}}" style="width:100%" class="hover-shadow cursor">
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-md-6 small-box-shadow" >
+    <rt-widget-header title="Descripcion" bg="background-head-blueblack"></rt-widget-header>
+    <div class="col-md-12" style="margin-top: 4px;">
+      <rt-form-button 
+        buttons="vm.buttons"
+        updates="vm.updates"
+        new-button="vm.nuevo()" 
+        edit-button="vm.editar()" 
+        delete-button="vm.eliminar()">
+      </rt-form-button>
+    </div> 
+    <div class="col-md-12 configBody" style="height: 400px; overflow: auto;">
+      <form class="formulario" name="formulario">
+        <fieldset ng-disabled="vm.updates.disabled">
+          <rt-image-file type="'imagen'" property="'slide0'" eliminar="vm.eliminarimagenes"  files="vm.slide.slide" dato="vm.slide" height-upload="'250px'" width-upload="'250px'" height-uploaded="'100%'" width-uploaded="'100%'" blob="vm.slide.slideBlob" erase-file="false"></rt-image-file>
+        </fieldset>
+      </form>
+    </div>         
+    <br>
+    <div class="panel-body">
+      <center>
+          <button type="submit" ng-click="vm.guardar()" class="blue-bottom button-4"><i class="fa fa-check" aria-hidden="true"></i><span >Guardar</span></button> 
+          <a ng-click="vm.cancelar()" class="blue-bottom button-4 text-white"><i class="fa fa-times" aria-hidden="true"></i>Cancelar</a>
+      </center>  
+    </div>  
+  </div>
+</div>
+<style>
+  .row > .column {
+    padding: 0 8px;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .column {
+    float: left;
+    width: 33%;
+  }
+
+  .cursor {
+    cursor: pointer;
+  }
+  img {
+    margin-bottom: -4px;
+  }
+  img.hover-shadow {
+    transition: 0.3s;
+  }
+
+  .hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+</style>

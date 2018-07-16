@@ -1,0 +1,10 @@
+<div id="left">
+  <div ng-repeat="a in vm.nosotros">
+    <h1 class="orange-text mb-1">{{a.titulo}}</h1>
+    <ol class="lista-ol">
+      <li ng-repeat="b in a.texto">
+        {{b.text}}
+      </li>      
+    </ol>
+  </div>
+</div>

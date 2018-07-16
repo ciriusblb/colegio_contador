@@ -1,0 +1,26 @@
+
+    .configBody::-webkit-scrollbar {
+        width: 7px;
+        background-color: white;
+    }
+    .configBody::-webkit-scrollbar-track {
+        -webkit-box-shadow: white;
+    }
+    .configBody::-webkit-scrollbar-thumb {
+        background-color: #34495E;
+        outline: 1px solid red;
+    }
+    .tableBody::-webkit-scrollbar {
+        width: 7px;
+        background-color: #e2e2e2;
+    }
+    .tableBody::-webkit-scrollbar-track {
+        -webkit-box-shadow: #e2e2e2;
+    }
+    .tableBody::-webkit-scrollbar-thumb {
+        background-color: #34495E;
+        outline: 1px solid red;
+    }
+    .hover{
+      cursor: pointer;
+    }

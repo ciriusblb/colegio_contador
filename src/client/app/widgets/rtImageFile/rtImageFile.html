@@ -1,0 +1,54 @@
+<div ng-if="type=='imagen'">
+  <button  type="button" ng-if="eraseFile"  ng-click="eliminarDato()" class="times-x">
+  <i class="fas fa-times fa-xs" ></i>
+  </button>
+  <div class="image-upload">
+    <label for="{{property}}-{{identifier}}" ng-if="!blob">
+      <img ng-if="!files" src="content/home/subir.png" width="{{widthUpload}}" height="{{heightUpload}}">
+      <img ng-if="files" src="imagenes/{{property.split('0')[0]}}/{{files}}" width="{{widthUploaded}}" height="{{heightUploaded}}">
+    </label>
+    <label for="{{property}}-{{identifier}}" ng-if="blob">
+      <img src="{{blob}}" width="{{widthUploaded}}" height="{{heightUploaded}}">
+    </label>
+    <input id="{{property}}-{{identifier}}" name="{{property}}-{{identifier}}" ng-model="image" type="file" data-file>
+  </div>
+</div>
+
+
+
+  <div ng-if="type=='archivo'">
+      <button  type="button" ng-if="eraseFile"  ng-click="eliminarDato()" class="times-x">
+  <i class="fas fa-times fa-xs" ></i>
+  </button>
+  <div class="image-upload">
+        <label for="{{property}}-{{identifier}}" ng-if="!blob">
+          <i class="fa fa-file fa-3x" aria-hidden="true" style="color: #637c8a;"></i>
+        </label>
+        <label for="{{property}}-{{identifier}}" ng-if="blob">
+          <span ng-if="blob=='pdf'"><i  class="far fa-file-pdf fa-3x" style="color: #c30505;"></i></span>
+          <span ng-if="blob!='pdf'"><i  class="far fa-file-word fa-3x" style="color: #066ca7;"></i></span>
+        </label>
+        <input data-file ng-model="application" type="file" id="{{property}}-{{identifier}}" name="{{property}}-{{identifier}}">
+    </div>
+  </div>
+
+
+
+
+
+
+
+        <style type="text/css">
+          .height250px{
+            height: 250px;
+          }
+          .height200px{
+            height: 200px;
+          }
+          .height300px{
+            height: 300px;
+          }
+          .height350px{
+            height: 350px;
+          }
+        </style>

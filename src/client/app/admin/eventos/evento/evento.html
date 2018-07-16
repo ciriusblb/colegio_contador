@@ -1,0 +1,85 @@
+ <rt-widget-header title="Formulario" bg="background-head-blueblack"></rt-widget-header>  
+    <form  name="Formulario">         
+        <div class="col-md-12">
+            <rt-form-button 
+                buttons="vm.buttons"
+                updates="vm.updates"
+                new-button="vm.nuevo()" 
+                edit-button="vm.editar()" 
+                message-button="vm.comunicar()"  
+                back-button="vm.volver()" 
+                delete-button="vm.eliminar()" >
+            </rt-form-button>
+        </div>
+        <div  class="configBody row" style="width: 100%;height: 400px; overflow: auto" >
+            <fieldset class="col-md-6" ng-disabled="vm.updates.disabled">
+                <label class="w3-text-blue-x1" for="titulo"><b>Titulo</b></label>
+                <input type="text" class="w3-input-x1 w3-border" name="titulo" lyrics-only capitalize-letter ng-model="vm.evento.titulo" required>
+                <label class="w3-text-blue-x1" for="lugar"><b>Lugar</b></label>
+                <input type="text" class="w3-input-x1 w3-border" name="lugar" capitalize-letter ng-model="vm.evento.lugar" required>
+            </fieldset>
+            <fieldset class="col-md-6" ng-disabled="vm.updates.disabled">
+                <!--<label class="w3-text-blue-x1" for="fecha"><b>Fecha</b></label>
+                <div class="input-group">
+                    <input type="text" name="fecha" uib-datepicker-popup="MMM dd,yyyy" required="required" ng-model="vm.evento.fecha" is-open="vm.open" class="w3-input-x1 w3-border" required> 
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" style="border-radius: 0px; padding: 4px 12px;" type="button ng" ng-click="vm.open=!vm.open">
+                        <i class="fas fa-calendar-alt"></i></button>
+                    </span>
+                </div> -->
+                <label for="example-date-input" class="w3-text-blue-x1">Fecha</label>
+                <input  class="w3-input-x1 w3-border" type="date" ng-model="vm.evento.fecha" id="example-date-input">
+                <label class="w3-text-blue-x1" for="hora"><b>Hora</b></label>
+                <input type="text" class="w3-input-x1 w3-border" name="hora" ui-mask="99:99 AA - 99:99 AA" ng-model="vm.evento.hora"  required>
+            </fieldset>
+            <fieldset class="col-md-12" ng-disabled="vm.updates.disabled">
+                <label class="w3-text-blue-x1" for="inscripcion"><b>Inscripciones</b></label>
+                <textarea name="inscripcion" auto-resize capitalize-letter style="resize: none;" class="w3-input-x1 w3-border" placeholder="Inscripciones" ng-model="vm.evento.inscripcion"  rows="4" required></textarea>
+                
+                <label class="w3-text-blue-x1" for="descripcion"><b>Descripción</b></label>
+                <textarea name="descripcion" auto-resize capitalize-letter style="resize: none;" class="w3-input w3-border" placeholder="Descripción" ng-model="vm.evento.descripcion" rows="4" required></textarea>
+                <label class="w3-text-blue-x1" for="ponentes">Ponentes 
+                </label>
+                <div class="col-md-12" ng-repeat="a in vm.evento.ponentes" >
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label class="w3-text-blue-x1 no-margin">Nombre(s) y Apellidos</label>
+                            <input type="text" class="w3-input-x1 w3-border" lyrics-only capitalize-letter ng-model="vm.evento.ponentes[$index].nombre" required>
+                            <label class="w3-text-blue-x1 no-margin">Especialidades</label>
+                            <input type="text" class="w3-input-x1 w3-border" lyrics-only capitalize-letter ng-model="vm.evento.ponentes[$index].especialidad" required>
+                        </div>
+                        <div class="col-md-4">
+                            <rt-image-file type="'imagen'" property="'ponente'" identifier="$index" eliminar="vm.eliminarimagenes" files="vm.evento.ponentes[$index].ponente" dato="vm.evento.ponentes[$index]" height-upload="'100px'" width-upload="'90px'" height-uploaded="'100px'" width-uploaded="'90px'" blob="vm.evento.ponentes[$index].ponenteBlob" erase-file="true" eliminar-dato="vm.eliminarDato($index)"></rt-image-file>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button class="hover" type="button" ng-click="vm.agregarPonente()" style="border: 1px solid #637c8a; width: 100%; text-align: center; color: #637c8a; margin-top: 5px;">
+                        <i class="fas fa-plus fa-2x"></i>
+                    </button>
+                </div>
+            </fieldset>
+            <fieldset class="col-md-12" ng-disabled="vm.updates.disabled">
+                    <label class="w3-text-blue-x1">Cuenta</label>
+                     <rt-image-file type="'imagen'" property="'cuenta0'" eliminar="vm.eliminarimagenes"  files="vm.evento.cuenta" dato="vm.evento" height-upload="'150px'" width-upload="'150px'" height-uploaded="'150px'" width-uploaded="'300px'" blob="vm.evento.cuentaBlob" erase-file="false"></rt-image-file>
+                    <label class="w3-text-blue-x1">Pre-Imagen</label>
+                    <rt-image-file type="'imagen'" property="'preEvento0'" eliminar="vm.eliminarimagenes"  files="vm.evento.preEvento" dato="vm.evento" height-upload="'200px'" width-upload="'200px'" height-uploaded="'200px'" width-uploaded="'100%'" blob="vm.evento.preEventoBlob" erase-file="false"></rt-image-file>
+                    <label class="w3-text-blue-x1">Imagen</label>
+                    <rt-image-file type="'imagen'" property="'evento0'" eliminar="vm.eliminarimagenes"  files="vm.evento.evento" dato="vm.evento" height-upload="'300px'" width-upload="'300px'" width-uploaded="'100%'" blob="vm.evento.eventoBlob" erase-file="false"></rt-image-file>
+            </fieldset>
+        </div>
+        <center>
+        <div class="panel-body">
+            <button type="submit" ng-click="vm.guardar(Formulario.$valid)" ng-disabled="!Formulario.$valid" class="blue-bottom button-4">
+                <i class="fas fa-check"></i><span >Registrar</span>
+            </button> 
+            <a ng-click="vm.cancelar()" class="blue-bottom button-4 ">
+                <i class="fas fa-times"></i><span >Cancelar</span>
+            </a>
+        </div>
+        </center>
+    </form> 
+
+    <script type="text/javascript">
+        
+    </script>

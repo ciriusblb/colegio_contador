@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-6" style="background: #e2e2e2;">
+    <rt-widget-header title="Noticias" bg="background-head-blueblack"></rt-widget-header> 
+    <div class="col-md-12" >
+      <form id="site-search"  class="ng-pristine ng-valid example col-md-12">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        <input type="text" ng-model="vm.texto" placeholder="Type here for search..." name="search">
+      </form>
+    </div>
+      <div class="col-md-12 tableBody"  style="height: 445px; overflow: auto;">
+        <table class="table table-bordered table-sm">
+          <thead>
+              <th>Nro.</th>
+              <th>Título</th>
+              <th>Fecha</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="a in vm.noticias | filter:vm.texto" class="hover" ng-click="vm.select(a.id)" ng-class="{'tr-selected':vm.updates.idSelected==a.id}">
+                <td>{{$index+1}}</td>
+                <td>{{a.titulo}}</td>
+                <td>{{a.fecha | date:'dd/MM/yy'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+
+  <div class="col-md-6 small-box-shadow" >
+    <div ui-view></div>
+  </div>
+</div>

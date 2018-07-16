@@ -1,0 +1,34 @@
+<rt-widget-header title="Descripcion" bg="background-head-blueblack"></rt-widget-header>
+  <div class="row">
+      <div class="col-md-12" style="margin-top: 4px;">
+    <rt-form-button 
+      buttons="vm.buttons"
+      updates="vm.updates"
+      new-button="vm.nuevo()" 
+      edit-button="vm.editar()" 
+      delete-button="vm.eliminar()">
+    </rt-form-button>
+  </div> 
+      <div class="col-md-6">
+        <fieldset ng-disabled="vm.updates.disabled">
+          <rt-image-file type="'imagen'" property="'enlace0'" eliminar="vm.eliminarimagenes"  files="vm.enlace.enlace" dato="vm.enlace" height-upload="'150px'" width-upload="'250px'" height-uploaded="'150px'" width-uploaded="'250px'" blob="vm.enlace.enlaceBlob" erase-file="false"></rt-image-file>
+        </fieldset>
+      </div>
+      <div class="col-md-6 configBody" style="height: 400px; overflow: auto;">
+        <form class="formulario" name="formulario">
+          <fieldset ng-disabled="vm.updates.disabled">
+            <label class="w3-text-blue" for="titulo"><b>Título</b></label>
+            <input type="text" class="w3-input w3-border" name="titulo" id="titulo" capitalize-letter ng-model="vm.enlace.titulo" placeholder="enlace" required>
+            <label class="w3-text-blue" for="url"><b>Url</b></label>
+            <input type="text" class="w3-input w3-border" name="url" id="url" ng-model="vm.enlace.url" placeholder="Url" required>
+          </fieldset>
+        </form>
+      </div>   
+  </div>      
+   
+      <div class="panel-body">
+        <center>
+            <button type="submit" ng-click="vm.guardar(formulario.$valid)" class="blue-bottom button-4"><i class="fa fa-check" aria-hidden="true"></i><span >Guardar</span></button> 
+            <a ng-click="vm.cancelar()" class="blue-bottom button-4 text-white"><i class="fa fa-times" aria-hidden="true"></i>Cancelar</a>
+        </center>  
+      </div>  

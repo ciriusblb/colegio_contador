@@ -1,0 +1,54 @@
+
+
+
+<div class="row">
+    <div class="col-md-3 small-box-shadow">
+        <rt-widget-header title="BUSCAR" bg="background-head-orange"></rt-widget-header>               
+
+        <form class="w3-container w3-card-4">
+		  <p>      
+		  <label class="w3-text-green"><b>MAT. Nº</b></label>
+		  <input class="w3-input w3-border" name="matricula" ng-model="vm.datos.matricula" type="text"></p>
+		  <p>      
+		  <label class="w3-text-green"><b>Apellido Paterno</b></label>
+		  <input class="w3-input w3-border" name="APELLIDOSp" ng-model="vm.datos.ap_Paterno" type="text"></p>
+		  <p>      
+		  <label class="w3-text-green"><b>Apellido Materno</b></label>
+		  <input class="w3-input w3-border" name="APELLIDOSm" ng-model="vm.datos.ap_Materno" type="text"></p>
+		  <p>      
+		  <label class="w3-text-green"><b>Nombre (s)</b></label>
+		  <input class="w3-input w3-border" name="nombre" ng-model="vm.datos.nombre" type="text"></p>
+		  <p>   
+		  <p>      
+		  <label class="w3-text-green"><b>NUMERO DE CERTIFICACION</b></label>
+		  <input class="w3-input w3-border" name="CERTIFICACION" ng-model="vm.datos.numero" type="text"></p>
+		  <p>    
+		  <button class="w3-btn w3-green" ng-click="vm.buscar()">Buscar</button><button class="w3-btn w3-green" ng-if="vm.certificado" ng-click="vm.limpiar()">Clear</button></p>
+		</form>
+    </div>
+    <div class="col-md-9 small-box-shadow">
+        <rt-widget-header title="MIEMBRO CERTIFICADO" bg="background-head-orange"></rt-widget-header>               
+        <div class="row">
+			<div class="col-md-12">
+				<table class="table table-sm  table-bordered">
+				    <thead class="success-color-dark">
+				        <tr class="text-white">
+				            <th><small>MAT. Nº</small></th>
+				            <th><small>APELLIDOS y NOMBRE(S)</small></th>
+				            <th><small>NUMERO DE CERTIFICACION</small></th>
+				            <th><small>CADUCIDAD DE CERTIFICACION</small></th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr ng-if="vm.certificado">
+				            <td>{{vm.certificado.matricula}}</td>
+				            <td>{{vm.certificado.ap_Paterno}} {{vm.certificado.ap_Materno}}, {{vm.certificado.nombre}}</td>
+				            <td>{{vm.certificado.numero}}</td>
+				            <td>{{vm.certificado.fecha_caducidad | date:'d MMMM, y'}}</td>
+				        </tr>
+				    </tbody>
+				</table>
+			</div>
+		</div>
+    </div>
+</div>

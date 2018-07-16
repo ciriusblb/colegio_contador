@@ -1,0 +1,99 @@
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-2 small-box-shadow">
+            <rt-widget-header title="Filtros" bg="background-head-blueblack"></rt-widget-header>
+            <table class="table table-sm " id="year">
+                <thead>
+                    <th>
+                        <div class="ui-timesbox ui-timesbox-danger" style="display: flex;">
+                            <label>
+                                <input ng-model="vm.selected[0].selected" ng-click="vm.reset(vm.estados,0,'estado')" ng-disabled="vm.selected[0].selected || vm.updates.idSelected || !vm.updates.disabled" type="checkbox" id="todos" name="todos"><span>Estados</span>
+                            </label>
+                        </div>
+                    </th>
+                </thead>
+                <tbody >
+                    <tr ng-repeat="a in vm.estados">
+                        <td>                                  
+                         <div class="ui-radio ui-checkbox-event" >
+                            <label >
+                                <input type="radio" name="estado" ng-disabled="vm.updates.idSelected || !vm.updates.disabled" ng-checked="a.selected" ng-click="vm.filtro(vm.estados,$index,0,'estado',a.estado)"><span>{{a.estado}}</span>
+                            </label>
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm " id="year">
+                <thead>
+                    <th>
+                        <div class="ui-timesbox ui-timesbox-danger" style="display: flex;">
+                            <label>
+                                <input ng-model="vm.selected[1].selected" ng-click="vm.reset(vm.tipos,1,'tipo')" ng-disabled="vm.selected[1].selected || vm.updates.idSelected || !vm.updates.disabled" type="checkbox" id="todos" name="todos"><span>Tipo de Miembro</span>
+                            </label>
+                        </div>
+                    </th>
+                </thead>
+                <tbody >
+                    <tr ng-repeat="a in vm.tipos">
+                        <td>                                  
+                         <div class="ui-radio ui-checkbox-event" >
+                            <label >
+                                <input type="radio" name="tipo" ng-disabled="vm.updates.idSelected || !vm.updates.disabled" ng-checked="a.selected" ng-click="vm.filtro(vm.tipos,$index,1,'tipo',a.tipo)"><span>{{a.tipo}}</span>
+                            </label>
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6" style="background: #e2e2e2;">
+            <rt-widget-header title="Colegiados" bg="background-head-blueblack"></rt-widget-header>
+            <div class="configBody" style="height: 520px; overflow: auto;">
+                <div class="col-md-12" >
+                    <form id="site-search"  class="ng-pristine ng-valid example col-md-12">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                        <input type="text" ng-model="vm.texto" placeholder="Type here for search..." name="search">
+                    </form>
+                </div>
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <th ng-if="vm.updates.message">
+                            <div class="ui-checkbox ui-checkbox-cole-active" >
+                                <label>
+                                    <input type="checkbox" ng-click="vm.cambiarTodos(!vm.all)" ng-checked="vm.all" ><span></span>
+                                </label>
+                            </div>
+                        </th>
+                        <th>Nro.</th>
+                        <th>Matrícula</th>
+                        <th>Apellidos</th>           
+                        <th>Nombres</th>
+                        <th>Fecha Nac.</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="a in vm.items | filter:vm.texto" ng-class="{'tr-selected':vm.updates.idSelected==a.id}" ng-click="vm.ver(a.id)">
+                            <td ng-if="vm.updates.message">
+                                <div class="ui-checkbox ui-checkbox-cole">
+                                    <label><input type="checkbox" ng-checked="a.comunicar" ng-click="vm.change(a.id)"><span></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>{{vm.pager.startIndex + $index+1}}</td>
+                            <td>{{a.matricula}}</td>
+                            <td>{{a.ap_Paterno}}</td>
+                            <td>{{a.nombre}}</td>
+                            <td>{{a.fecha_Nac | date:'dd/MM/yy'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4 small-box-shadow">
+            <div ui-view></div>                     
+        </div> 
+    </div>
+
+</div>
+
+

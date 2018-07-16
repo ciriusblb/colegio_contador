@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-md-6" style="background: #e2e2e2;" >
+  <rt-widget-header title="Informes" bg="background-head-blueblack"></rt-widget-header> 
+  <div  class="configBody" style="height: 445px; overflow: auto;">
+      <div class="col-md-12" >
+        <form id="site-search"  class="ng-pristine ng-valid example col-md-12">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <input type="text" ng-model="vm.texto" placeholder="Type here for search..." name="search">
+        </form>
+      </div>
+      <div class="col-md-12 tableBody" >
+        <table class="table table-bordered table-sm">
+              <thead>
+                  <th>Nro.</th>
+                  <th>Título</th>
+                  <th>Archivo</th>
+                  <th>Fecha</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="a in vm.informes" ng-class="{'tr-selected':vm.updates.idSelected==a.id}" class="hover" ng-click="vm.seleccionar(a.id)">
+                    <td>{{$index+1}}</td>
+                    <td>{{a.titulo}}</td>
+                    <td>{{a.informe}}</td>
+                    <td>{{a.fecha | date:'dd/MM/yyyy'}}</td>
+                </tr>
+              </tbody>
+        </table>
+      </div>    
+  </div>
+
+</div>
+<div class="col-md-6 small-box-shadow" >
+    <rt-widget-header title="Descripcion"  bg="background-head-blueblack"></rt-widget-header>
+        <div class="col-md-12" style="margin-top: 4px;">
+          <rt-form-button 
+            buttons="vm.buttons"
+            updates="vm.updates"
+            new-button="vm.nuevo()" 
+            edit-button="vm.editar()" 
+            delete-button="vm.eliminar()">
+          </rt-form-button>
+        </div> 
+        <div class="configBody col-md-12" style="height: 400px; overflow: auto">
+          <form name="formulario">
+            <fieldset ng-disabled="vm.updates.disabled">
+              <label class="w3-text-blue" for="header"><b>Header</b></label>
+              <input type="text" class="w3-input w3-border" name="header" id="header" ng-model="vm.informe.header"  placeholder="Header" required>
+              <label class="w3-text-blue" for="titulo"><b>Título</b></label>
+              <input type="text" class="w3-input w3-border" name="titulo" id="titulo" ng-model="vm.informe.titulo"  placeholder="Título" required>
+              <label class="w3-text-blue" for="titulo"><b>Descripción</b></label>
+              <textarea name="descripcion" auto-resize capitalize-letter style="resize: none;" class="w3-input-x1 w3-border" placeholder="Descripción" ng-model="vm.informe.descripcion"  rows="4" required></textarea>
+<!--               <label class="w3-text-blue-x1" for="fecha"><b>Fecha</b></label>
+              <div class="input-group">
+                  <input type="text" name="fecha" uib-datepicker-popup="MMM dd,yyyy" required="required" ng-model="vm.informe.fecha" is-open="vm.open" class="w3-input-x1 w3-border" required> 
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" style="border-radius: 0px; padding: 4px 12px;" type="button ng" ng-click="vm.open=!vm.open"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+              </div> -->
+               <label for="example-date-input" class="w3-text-blue-x1">Fecha</label>
+                <input  class="w3-input-x1 w3-border" type="date" ng-model="vm.informe.fecha" id="example-date-input">
+            </fieldset>
+            <fieldset ng-disabled="vm.updates.disabled">
+              <label class="w3-text-blue" ><b>Archivos</b></label>
+              <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <label class="w3-text-blue-x1 no-margin">1. Nombre del archivo</label>
+                      <div>{{vm.informe.nombre_archivo}}</div>                          
+                  </div>
+                  <div class="col-md-3">
+                      <rt-image-file type="'archivo'" eliminar="vm.eliminarimagenes" property="'informe0'" names="'nombre_archivo'" files="vm.informe.informe" dato="vm.informe" erase-image="false" blob="vm.informe.informeBlob" ></rt-image-file>
+                  </div> 
+                  </div>                       
+              </div>
+            </fieldset>
+          </form>
+        </div>     
+      <div class="panel-body">
+        <center>
+            <button type="submit" ng-click="vm.guardar(formulario.$valid)" class="blue-bottom button-4"><i class="fa fa-check" aria-hidden="true"></i><span >Guardar</span></button> 
+            <a ng-click="vm.cancelar()" class="blue-bottom button-4 text-white"><i class="fa fa-times" aria-hidden="true"></i>Cancelar</a>
+        </center>  
+      </div>  
+</div>
+</div>

@@ -1,0 +1,17 @@
+<a ng-show="buttons.new" ng-click="newButton()" class="blue-bottom button-4" ng-class="{'blue-bottom-active':!updates.disabled}">
+    <i class="fas fa-plus"></i>
+    <span >Nuevo <input type="checkbox" ng-model="updates.disabled"></span>
+</a> 
+<a ng-show="buttons.edit" ng-click="editButton()" class=" blue-bottom button-4" ng-class="{'blue-bottom-active':!updates.disabled}">
+	<i class="fas fa-edit"></i>
+    <span >Editar<input type="checkbox" ng-model="updates.disabled"></span>
+</a> 
+<a ng-show="buttons.delete" ng-click="deleteButton()" class=" blue-bottom button-4">
+	<i class="fas fa-trash-alt"></i>
+    <span >Eliminar</span>
+</a> 
+<style type="text/css">
+    .button-4 input[type=checkbox]{
+        opacity: 0
+    }
+</style>

@@ -1,0 +1,112 @@
+    <rt-widget-header title="Formulario"  bg="background-head-blueblack"></rt-widget-header>  
+    <form  name="Formulario">         
+        <div class="col-md-12">
+            <rt-form-button 
+                buttons="vm.buttons"
+                updates="vm.updates"
+                new-button="vm.nuevo()" 
+                edit-button="vm.editar()" 
+                message-button="vm.comunicar()"  
+                back-button="vm.volver()" 
+                delete-button="vm.eliminar()" >
+            </rt-form-button>
+        </div>
+        <br>
+        <div  class="configBody row" style="width: 100%;height: 400px; overflow: auto">
+            <fieldset class="col-md-6">
+                <label class="w3-text-blue-x1" for="nombre"><b>Nombre(s)</b></label>
+                <input type="text" class="w3-input-x1 w3-border" name="nombre" lyrics-only capitalize-letter ng-model="vm.miembro.nombre" ng-disabled="vm.updates.disabled" required>
+                <label class="w3-text-blue-x1" for="apellido_paterno"><b>Apellido Paterno</b></label>
+                <input type="text" class="w3-input-x1 w3-border" name="apellido_paterno" lyrics-only capitalize-letter ng-model="vm.miembro.ap_Paterno" ng-disabled="vm.updates.disabled" required>
+                <label class="w3-text-blue-x1" for="apellido_materno"><b>Apellido Materno</b></label>
+                <input type="text" class="w3-input-x1 w3-border" name="apellido_materno" lyrics-only capitalize-letter ng-model="vm.miembro.ap_Materno" ng-disabled="vm.updates.disabled" required>
+                <label class="w3-text-blue-x1" for="tipo_miembro"><b>Matricula</b></label>
+                <input type="text" class="w3-input-x1 w3-border" ui-mask="99-999" name="apellido_materno" lyrics-only capitalize-letter ng-model="vm.miembro.matricula" ng-disabled="vm.updates.disabled" required>
+            </fieldset>
+            <fieldset class="col-md-6">
+<!--                 <label class="w3-text-blue" for="fecha_nacimiento"><b>Fecha de Nacimiento</b></label>
+                <div class="input-group">
+                    <input type="text" name="fecha_nacimiento" uib-datepicker-popup="MMM dd,yyyy" required="required" ng-model="vm.miembro.fecha_Nac" is-open="vm.buttonDate[0]" class="w3-input w3-border" ng-disabled="vm.updates.disabled" required> 
+                    <span class="input-group-btn" ng-disabled="vm.updates.disabled">
+                      <button class="btn btn-default" style="border-radius: 0px; padding: 8.5px 12px;" type="button ng" ng-click="vm.showDatepicker($event,0)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div> -->
+                <label for="fecha_nacimiento" class="w3-text-blue-x1">Fecha de Nacimiento</label>
+                <input  class="w3-input-x1 w3-border" type="date" ng-model="vm.miembro.fecha_Nac" id="fecha_nacimiento" ng-disabled="vm.updates.disabled" required>
+
+<!--                 <label class="w3-text-blue" for="fecha_nacimiento"><b>Fecha de Incorporación</b></label>
+                <div class="input-group">
+                    <input type="text" name="fecha_nacimiento" uib-datepicker-popup="MMM dd,yyyy" required="required" ng-model="vm.miembro.incorporacion" is-open="vm.buttonDate[1]" class="w3-input w3-border" ng-disabled="vm.updates.disabled" required> 
+                    <span class="input-group-btn" ng-disabled="vm.updates.disabled">
+                      <button class="btn btn-default" style="border-radius: 0px; padding: 8.5px 12px;" type="button ng" ng-click="vm.showDatepicker($event,1)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div> -->
+                <label for="fecha_incorporacion" class="w3-text-blue-x1">Fecha de Incorporación</label>
+                <input  class="w3-input-x1 w3-border" type="date" ng-model="vm.miembro.incorporacion" id="fecha_incorporacion" ng-disabled="vm.updates.disabled" required>
+<!--                 <label class="w3-text-blue" for="fecha_nacimiento"><b>Vigencia Hasta</b></label>
+                <div class="input-group">
+                    <input type="text" name="fecha_nacimiento" uib-datepicker-popup="MMM dd,yyyy" required="required" ng-model="vm.miembro.vigencia" is-open="vm.buttonDate[2]" class="w3-input w3-border" ng-disabled="vm.updates.disabled" required> 
+                    <span class="input-group-btn" ng-disabled="vm.updates.disabled">
+                      <button class="btn btn-default" style="border-radius: 0px; padding: 8.5px 12px;" type="button ng" ng-click="vm.showDatepicker($event,2)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div> -->
+                <label for="fecha_vigencia" class="w3-text-blue-x1">Fecha de Incorporación</label>
+                <input  class="w3-input-x1 w3-border" type="date" ng-model="vm.miembro.vigencia" id="fecha_vigencia" ng-disabled="vm.updates.disabled" required>
+                <label class="w3-text-blue-x1" for="estado"><b>Estado</b></label>
+<!--                 <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="HABIL" name="estado" checked ng-model="vm.miembro.estado" ng-disabled="vm.updates.disabled" required>
+                    HABIL
+                  </label>
+                </div>
+                <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" value="INHABIL" name="estado" ng-model="vm.miembro.estado" ng-disabled="vm.updates.disabled">
+                    INHABIL
+                  </label>
+                </div> -->
+                <div class="ui-radio ui-checkbox-event" >
+                    <label >
+                        <input type="radio" value="HABIL" name="estado" checked ng-model="vm.miembro.estado" ng-disabled="vm.updates.disabled" required><span>HABIL</span>
+                    </label>
+                </div>
+                <div class="ui-radio ui-checkbox-event" >
+                    <label >
+                        <input type="radio" value="INHABIL" name="estado" ng-model="vm.miembro.estado" ng-disabled="vm.updates.disabled"><span>INHABIL</span>
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset class="col-md-12">
+                <div class="ui-checkbox ui-checkbox-event" style="display: flex;">
+                            <label>
+                                <input type="checkbox" value="true" ng-checked="vm.miembro.certificacion" ng-click="vm.miembro.certificacion=!vm.miembro.certificacion"><span>CERTIFIACADO</span>
+                            </label>
+                        </div>
+            </fieldset>
+            <fieldset class="col-md-6" ng-if="vm.miembro.certificacion==true">
+                <label class="w3-text-blue-x1" for="numero"><b>Número de Certificación</b></label>
+                <input type="text" class="w3-input-x1 w3-border" name="numero" lyrics-only capitalize-letter ng-model="vm.miembro.numero" ng-disabled="vm.updates.disabled" required>
+            </fieldset>
+            <fieldset class="col-md-6" ng-if="vm.miembro.certificacion==true">
+<!--                 <label class="w3-text-blue-x1" for="fecha_caducidad"><b>Cad. de Certificación</b></label>
+                <div class="input-group">
+                    <input type="text" name="fecha_caducidad" uib-datepicker-popup="MMM dd,yyyy" required="required" ng-model="vm.miembro.fecha_caducidad" is-open="vm.buttonDate[3]" class="w3-input w3-border" ng-disabled="vm.updates.disabled" required> 
+                    <span class="input-group-btn" ng-disabled="vm.updates.disabled">
+                      <button class="btn btn-default" style="border-radius: 0px; padding: 8.5px 12px;" type="button" ng-click="vm.showDatepicker($event,3)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div> -->
+                <label for="fecha_certificacion" class="w3-text-blue-x1">Cad. de Certificación</label>
+                <input  class="w3-input-x1 w3-border" type="date" ng-model="vm.miembro.fecha_caducidad" id="fecha_certificacion" ng-disabled="vm.updates.disabled" required>
+            </fieldset>
+        </div>
+        <center>
+                    <div class="panel-body">
+            <button type="submit" ng-click="vm.guardar(Formulario.$valid)" ng-disabled="!Formulario.$valid" class="blue-bottom button-4 ">
+                <i class="fa fa-check" aria-hidden="true"></i><span >Registrar</span>
+            </button> 
+            <a ng-click="vm.cancelar()" class="blue-bottom button-4 ">
+                <i class="fa fa-times" aria-hidden="true"></i><span >Cancelar</span>
+            </a>
+        </div>
+        </center>
+    </form>   

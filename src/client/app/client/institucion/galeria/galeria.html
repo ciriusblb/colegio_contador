@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-3 small-box-shadow">
+        <rt-widget-header title="Categoría" bg="background-head-orange"></rt-widget-header> 
+        <div class="form-check radio-green" ng-repeat="a in vm.galeria">
+            <input class="form-check-input" name="group100" type="radio" id="{{a.id}}----$index" checked ng-click="vm.fotos = a.galerias">
+            <label class="form-check-label" for="{{a.id}}----$index"><small>{{a.categoria}}</small></label>
+        </div>
+
+    </div>
+    <div class="col-md-9 small-box-shadow">
+        <rt-widget-header title="Galería" bg="background-head-orange"></rt-widget-header>  
+        <div class="gallery" id="gallery">
+            <div class="mb-3 pics all" ng-repeat="a in vm.fotos">
+                <a>
+                    <img class="img-fluid z-depth-1-half animated bounceIn" src="imagenes/galeria/{{a.galeria}}" alt="Card image cap" width="100%" data-toggle="modal" data-target="#modal1" ng-click="vm.showModal(a.galeria)">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<style type="text/css">
+    .gallery {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+        -webkit-column-width: 33%;
+        -moz-column-width: 33%;
+        column-width: 33%; }
+    .gallery .pics {
+        -webkit-transition: all 350ms ease;
+        transition: all 350ms ease; }
+    .gallery .animation {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1); }
+
+    @media (max-width: 450px) {
+        .gallery {
+            -webkit-column-count: 1;
+            -moz-column-count: 1;
+            column-count: 1;
+            -webkit-column-width: 100%;
+            -moz-column-width: 100%;
+            column-width: 100%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .btn.filter {
+            padding-left: 1.1rem;
+            padding-right: 1.1rem;
+        }
+    }
+</style>
+
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 100px;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body mb-0 p-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style=" position: absolute; color: white; right: 0; margin: 4px;">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <img class="img-fluid z-depth-1-half" src="imagenes/galeria/{{vm.src}}" alt="video" width="100%" data-toggle="modal" data-target="#modal1">
+                    </div>
+                </div>
+
+            </div>
+        </div>
