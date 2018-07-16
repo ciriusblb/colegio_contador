@@ -1,7 +1,7 @@
 'use strict'
 
 var Config = (function(){
-	var SECRET_TOKEN = 'ciroselacome'
+	var SECRET_TOKEN = 'my_secret_key'
 	return {
 		getClave : function(){
 			return SECRET_TOKEN
